@@ -24,4 +24,8 @@ class Dni:
     def getLetraSana(self):
         return self.letraSana
 
-    
+    def checkCIF(self):
+        return self.__longitud()
+
+    def __longitud(self):
+        return len(self.dni) == 9 and self.dni[:-1].isdigit() and self.dni[-1].isalpha()
