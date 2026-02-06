@@ -4,10 +4,11 @@
 
 # Python
 venv/
-__pycache__
+.venv/
+__pycache__/
 
 # Pytest
-.pytest_cache
+.pytest_cache/
 
 # MacOS
 .DS_Store
