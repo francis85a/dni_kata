@@ -1,5 +1,5 @@
 from dni_correctos import CASOS_TEST_CORRECTOS
-#from test.dni_incorrectos import CASOS_TEST_LETRA_PROHIBIDA
+from dni_incorrectos import CASOS_TEST_LETRA_PROHIBIDA
 #from test.dni_formato_incorrecto import CASOS_TEST_FORMATO_INCORRECTO
 import pytest
 from src.dni_cif import Dni
@@ -23,11 +23,11 @@ def test_check_cif_correcto(dni, dni_test):
     dni.setDni(dni_test)
     assert dni.checkCIF()
 
-#@pytest.mark.parametrize("dni_test", CASOS_TEST_LETRA_PROHIBIDA)
-#def test_check_cif_incorrecto(dni, dni_test):
-#    dni.setDni(dni_test)
-#    assert not dni.checkCIF()
-#
+@pytest.mark.parametrize("dni_test", CASOS_TEST_LETRA_PROHIBIDA)
+def test_check_cif_incorrecto(dni, dni_test):
+    dni.setDni(dni_test)
+    assert not dni.checkCIF()
+
 #@pytest.mark.parametrize("dni_test", CASOS_TEST_CORRECTOS)
 #def test_check_dni_correcto(dni, dni_test):
 #    dni.setDni(dni_test)
