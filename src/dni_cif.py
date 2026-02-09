@@ -1,9 +1,11 @@
+from src.tabla_asignacion import TablaAsignacion
 class Dni:
     
     def __init__(self, cadena=""):
         self.dni = cadena
         self.numeroSano = False
         self.letraSana = False
+        self.tabla = TablaAsignacion
 
 
     def setDni (self, cadena):
@@ -32,6 +34,10 @@ class Dni:
     
     def __longitud(self):
         return len(self.dni) == 9 and self.dni[:-1].isdigit() and self.dni[-1].isalpha()
+    
+    def checkCIF(self):
+        return self.checkLongitud()
+    
     
     def checkDni(self):
         self.setNumeroSano(self.__longitud())
