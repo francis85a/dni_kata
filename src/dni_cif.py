@@ -28,20 +28,18 @@ class Dni:
 
     def checkCIF(self):
         return self.checkDni() and self.checkLetra()
-
-    def checkLongitud(self):
-        return self.__longitud()
+    
+        
+    def checkDni(self):
+        self.setNumeroSano(self.__longitud() and self.__numero())
+        return self.getNumeroSano()
     
     def __longitud(self):
-        return len(self.dni) == 9 and self.dni[:-1].isdigit() and self.dni[-1].isalpha()
+        return len(self.dni) == 9 
     
-    def checkCIF(self):
-        return self.checkLongitud()
-    
-    
-    def checkDni(self):
-        self.setNumeroSano(self.__longitud())
-        return self.getNumeroSano()
+    def __numero(self):
+        return self.dni[:-1].isdigit()
+
     
     def checkLetra(self):
         if self.getNumeroSano():
@@ -55,5 +53,11 @@ class Dni:
             
             return False
         
-    # def getParteAlfabeticaDni(self):
-    #    return self.dni[-1]
+    def getParteAlfabeticaDni(self):
+        return self.dni[-1]
+
+    def __setLetraSana(self, valor):
+        self.letraSana = valor
+
+    def __checkValida(self):
+        return self.getParteAlfabeticaDni()
