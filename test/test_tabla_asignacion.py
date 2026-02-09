@@ -43,11 +43,11 @@ def test_getLetra(tabla):
     assert tabla.getLetra(22) == "E"
     assert tabla.getLetra(30) == "Posicion letra fuera de rango"
 
-#
-#def test_getModulo(tabla):
-#    assert tabla.getModulo() == 23
-#
-#
+
+def test_getModulo(tabla):
+    assert tabla.getModulo() == 23
+
+
 #def test_isLetraPermitida(tabla):
 #    assert tabla.isLetraPermitida("T")
 #    assert not tabla.isLetraPermitida("I")
