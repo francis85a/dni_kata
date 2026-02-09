@@ -1,6 +1,6 @@
-from dni_correctos import CASOS_TEST_CORRECTOS
-from dni_incorrectos import CASOS_TEST_LETRA_PROHIBIDA
-#from test.dni_formato_incorrecto import CASOS_TEST_FORMATO_INCORRECTO
+from test.dni_correctos import CASOS_TEST_CORRECTOS
+from test.dni_incorrectos import CASOS_TEST_LETRA_PROHIBIDA
+from test.dni_formato_incorrecto import CASOS_TEST_FORMATO_INCORRECTO
 import pytest
 from src.dni_cif import Dni
 
