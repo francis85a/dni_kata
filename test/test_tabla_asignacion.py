@@ -48,20 +48,20 @@ def test_getModulo(tabla):
     assert tabla.getModulo() == 23
 
 
-#def test_isLetraPermitida(tabla):
-#    assert tabla.isLetraPermitida("T")
-#    assert not tabla.isLetraPermitida("I")
-#
-#
-#@pytest.mark.parametrize("dni", CASOS_TEST_CORRECTOS)
-#def test_calcularLetra_correcta(tabla, dni):
-#    numero_dni = dni[:-1]
-#    letra = dni[-1]
-#    assert tabla.calcularLetra(numero_dni) == letra
-#
-#
-#@pytest.mark.parametrize("dni", CASOS_TEST_LETRA_PROHIBIDA)
-#def test_calcularLetra_incorrecta(tabla, dni):
-#    numero_dni = dni[:-1]
-#    letra = dni[-1]
-#    assert tabla.calcularLetra(numero_dni) != letra
+def test_isLetraPermitida(tabla):
+    assert tabla.isLetraPermitida("T")
+    assert not tabla.isLetraPermitida("I")
+
+
+@pytest.mark.parametrize("dni", CASOS_TEST_CORRECTOS)
+def test_calcularLetra_correcta(tabla, dni):
+    numero_dni = dni[:-1]
+    letra = dni[-1]
+    assert tabla.calcularLetra(numero_dni) == letra
+
+
+@pytest.mark.parametrize("dni", CASOS_TEST_LETRA_PROHIBIDA)
+def test_calcularLetra_incorrecta(tabla, dni):
+    numero_dni = dni[:-1]
+    letra = dni[-1]
+    assert tabla.calcularLetra(numero_dni) != letra
