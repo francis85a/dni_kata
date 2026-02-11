@@ -1,16 +1,16 @@
 from src.tabla_asignacion import TablaAsignacion
 class Dni:
-    
-    def __init__(self, cadena=""):
-        self.dni = cadena
+
+    def __init__(self, dni=""):
+        self.dni = dni
         self.numeroSano = False
         self.letraSana = False
-        self.tabla = TablaAsignacion
+        self.tabla = TablaAsignacion()
 
 
-    def setDni (self, cadena):
-        self.dni = cadena
-    
+    def setDni (self, dni):
+        self.dni = dni
+
     def getDni(self):
         return self.dni
     
@@ -20,8 +20,8 @@ class Dni:
     def getNumeroSano(self):
         return self.numeroSano
     
-    def setLetraSana(self, valor):
-        self.letraSana = valor
+    def setLetraSana(self, letra):
+        self.letraSana = letra
 
     def getLetraSana(self):
         return self.letraSana
@@ -31,15 +31,12 @@ class Dni:
     
         
     def checkDni(self):
-        self.setNumeroSano(self.__longitud() and self.__numero())
+        self.setNumeroSano(self.__longitud() and self.__checkNumero())
         return self.getNumeroSano()
     
     def __longitud(self):
         return len(self.dni) == 9 
     
-    def __numero(self):
-        return self.dni[:-1].isdigit()
-
     
     def checkLetra(self):
         if self.getNumeroSano():
@@ -52,7 +49,13 @@ class Dni:
         else:
             
             return False
-        
+
+    def obtenerLetra(self):
+        if self.getNumeroSano():
+            return self.tabla.calcularLetra(self.getParteNumericaDni())
+        else:
+            return None
+
     def getParteAlfabeticaDni(self):
         return self.dni[-1]
 
@@ -60,4 +63,15 @@ class Dni:
         self.letraSana = valor
 
     def __checkValida(self):
-        return self.getParteAlfabeticaDni()
+        if self.getNumeroSano():
+            return self.getParteAlfabeticaDni() == self.obtenerLetra()
+    
+    def __checkNumero(self):
+        return self.dni[:-1].isdigit()
+    
+    def getParteNumericaDni(self):
+        if self.getNumeroSano():
+            return self.dni[:-1]
+        else:
+            return None
+    
